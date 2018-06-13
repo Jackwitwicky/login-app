@@ -1,0 +1,41 @@
+<h1>Login</h1>
+
+<% if logged_in? %>
+
+  <p><%= link_to "Log Out", logout_path, method: "delete" %></p>
+
+<% else %>
+
+  <p><%= link_to "Log In", login_path %></p>
+
+<% end %>
+
+
+<%= form_for(:session, url: login_path) do |form| %>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.email_field :email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password %>
+    <%= form.password_field :password %>
+  </div>
+
+  <div class="field">
+    <%= form.label :remember_me %>
+    <%= form.check_box :remember_me %>
+  </div>
+
+  <div class="field">
+    <%= form.submit "Submit" %>
+  </div>
+
+<% end %>
+
+
+
+<p>
+  <%= link_to "Home", users_path %>
+</p>
